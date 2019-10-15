@@ -2,7 +2,6 @@ package com.example.first_homework
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -27,7 +26,6 @@ class MainActivity : AppCompatActivity() {
         if (requestCode == 1) {
             if (resultCode == RESULT_OK && data != null) {
                 println(data)
-                Toast.makeText(this, data.getStringExtra("institution_refactored"), Toast.LENGTH_LONG).show()
                 institution_name.text = data.getStringExtra("institution_refactored")
                 home_name.text = data.getStringExtra("home_refactored")
                 location_name.text = data.getStringExtra("location_refactored")
