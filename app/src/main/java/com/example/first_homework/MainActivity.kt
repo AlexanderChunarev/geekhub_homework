@@ -12,11 +12,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         edit_btn.setOnClickListener {
-            val intent = Intent(this, EditActivity::class.java)
-            intent.putExtra("institution", institution_name.text)
-            intent.putExtra("home", home_name.text)
-            intent.putExtra("location", location_name.text)
-            startActivityForResult(intent, 1)
+            startActivityForResult(Intent(this, EditActivity::class.java).apply {
+                putExtra("institution", institution_name.text)
+                putExtra("home", home_name.text)
+                putExtra("location", location_name.text)
+            }, 1)
         }
     }
 
@@ -25,7 +25,6 @@ class MainActivity : AppCompatActivity() {
 
         if (requestCode == 1) {
             if (resultCode == RESULT_OK && data != null) {
-                println(data)
                 institution_name.text = data.getStringExtra("institution_refactored")
                 home_name.text = data.getStringExtra("home_refactored")
                 location_name.text = data.getStringExtra("location_refactored")

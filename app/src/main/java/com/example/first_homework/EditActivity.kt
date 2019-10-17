@@ -12,22 +12,21 @@ class EditActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit)
         getData()
-
         save_btn.setOnClickListener {
-            val resultIntent = Intent()
-            resultIntent.putExtra("institution_refactored", education_edit_text.text.toString())
-            resultIntent.putExtra("home_refactored", current_city_edit_text.text.toString())
-            resultIntent.putExtra("location_refactored", location_edit_text.text.toString())
-
-            setResult(Activity.RESULT_OK, resultIntent)
+            setResult(Activity.RESULT_OK, Intent().apply {
+                putExtra("institution_refactored", education_edit_text.text.toString())
+                putExtra("home_refactored", current_city_edit_text.text.toString())
+                putExtra("location_refactored", location_edit_text.text.toString())
+            })
             finish()
         }
     }
 
     private fun getData() {
-        val intent = intent
-        education_edit_text.setText(intent.getStringExtra("institution"))
-        current_city_edit_text.setText(intent.getStringExtra("home"))
-        location_edit_text.setText(intent.getStringExtra("location"))
+        intent.apply {
+            education_edit_text.setText(getStringExtra("institution"))
+            current_city_edit_text.setText(getStringExtra("home"))
+            location_edit_text.setText(getStringExtra("location"))
+        }
     }
 }

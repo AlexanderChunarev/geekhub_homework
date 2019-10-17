@@ -57,7 +57,6 @@
             android:id="@+id/institution"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:layout_marginTop="32dp"
             android:drawableLeft="@drawable/ic_education"
             android:text=" Studied at "
@@ -99,7 +98,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-
             android:text="Cherkassy"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/text_color_black"
